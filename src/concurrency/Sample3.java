@@ -1,6 +1,5 @@
 package concurrency;
 
-
 /**
  * Example of join() method
  * set and get thread name 
@@ -13,12 +12,15 @@ public class Sample3 extends Thread{
 		for (int i = 0; i < 5; i++) {
 			
 			try {
-				Thread.sleep(50000);
+				Thread.sleep(1000);
+				if (Thread.currentThread().getName().equals("T-3")) {
+					Thread.sleep(1000);
+				}
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println(i);
+			System.out.println(Thread.currentThread().getName()+" "+ i +" "+  java.time.LocalTime.now());
 		}
 	}
 
